@@ -28,10 +28,9 @@ class BestComicStores::CLI
         when "list"
           list_stores
         else
-          #this broke "exit"
+          #this broke "exit", nvm removed .menu
           puts "Oops! Our list doesn't reach that far, here are the choices again."
           list_stores
-          menu
         end
       end
     end
