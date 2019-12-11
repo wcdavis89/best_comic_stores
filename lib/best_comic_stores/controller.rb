@@ -36,11 +36,10 @@ class BestComicStores::CLI
       
     #   input = nil
     #   while input != "exit"
-    #   puts "What do you want to know about #{@stores[input.to_i-1].name}? Type 'location', 'website', or 'description'. Type 'back' to go back to the main menu or 'exit' to leave the application."
-    #   if input.to_i > 0 
-    #       puts @stores[input.to_i-1].location
-    #       puts @stores[input.to_i-1].website
-    #       puts @stores[input.to_i-1].description
+    #   puts "Press '1' for a quick description. Type 'menu' or 'list' to check out another store. Type 'exit' to exit.
+    #   if input.to_i == 1
+    #       puts @store_info.description
+    
            
            
   def goodbye
