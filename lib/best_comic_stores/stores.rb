@@ -13,27 +13,15 @@ class BestComicStores::Stores
   def self.scrape_flavorwire
     stores = []
     
-    
     doc = Nokogiri::HTML(open("https://www.flavorwire.com/119588/americas-10-greatest-comic-and-graphic-novel-stores"))
+    
+    name = doc.search("strong a").each {|name| stores << name.text}
+    location = 
    binding.pry
-  name = doc.search("#strong a")
   
     stores << self.scrape_flavorwire
-  # store_1=self.new
-  # store_1.name = "Atomic Books"
-  # store_1.location = "Baltimore, MD"
-  # store_1.website = "https://atomicbooks.com/"
-  
-  # store_2=self.new
-  # store_2.name = "Forbidden Planet"
-  # store_2.location = "New York, NY"
-  # store_2.website = "https://www.fpnyc.com/"
-
+ 
     stores
   end
   
-  
-  # def store_info
-  #   @store_info = BestComicStores::StoreInfo.all
-  # end
 end
