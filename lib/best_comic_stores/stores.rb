@@ -15,8 +15,8 @@ class BestComicStores::Stores
     
     doc = Nokogiri::HTML(open("https://www.flavorwire.com/119588/americas-10-greatest-comic-and-graphic-novel-stores"))
     
-    name = doc.search("strong a").each {|name| stores << name.text}
-    location = 
+    name_loc = doc.search("strong").each {|location| stores << location.text}
+    name = stores.each do |name| 
    binding.pry
   
     stores << self.scrape_flavorwire
