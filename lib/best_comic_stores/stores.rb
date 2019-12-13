@@ -1,26 +1,27 @@
 class BestComicStores::Stores
-  attr_accessor :name, :location, :website, :description
+  attr_accessor :name_loc, :website, :description
   
   def self.all
-    #stores object?
-    # puts <<-DOC.gsub /^\s*/,''
-    #   1. Atomic Books 
-    #   2. Forbidden Planet
-    #   DOC
     self.scrape_flavorwire
   end
   
   def self.scrape_flavorwire
     stores = []
+    locations = []
+    websites = []
+    description = []
     
-    doc = Nokogiri::HTML(open("https://www.flavorwire.com/119588/americas-10-greatest-comic-and-graphic-novel-stores"))
+    doc = Nokogiri::HTML(open("https://www.fodors.com/news/photos/11-super-places-that-comic-book-fans-must-visit"))
     
-    name_loc = doc.search("strong").each {|location| stores << location.text}
-    name = stores.each do |name| 
+    name = doc.search("h2").each {|store| stores << store.text}
+    location = doc.search("h3 span").each {|location| locations << location.text.strip}
+    website = doc.search("p a").each{|store|websites << store.attr("href")}
+    description = doc.search("p").text
    binding.pry
   
     stores << self.scrape_flavorwire
- 
+    stores.pop
+    websites.shift
     stores
   end
   
