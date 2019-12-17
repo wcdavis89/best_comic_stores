@@ -22,7 +22,7 @@ class BestComicStores::CLI
       puts "Which one did you want to hear about? Enter the number, type 'list' to see the list again, or type 'exit' to leave the application: "
         input=gets.strip.downcase
         if input.to_i > 0
-            puts @stores[input.to_i-1].name
+            puts stores[input.to_i-1]
           elsif input == "list"
              list_stores
           else 
