@@ -10,8 +10,7 @@ class BestComicStores::CLI
   
   def list_stores
       stores = BestComicStores::Stores.all
-  #it might work, I've moved the method to stores.rb
-  #also, I need a spacer of some sort
+  
   stores.each.with_index(1) {|store, i| puts "#{i}. #{store}"}
   end
   
